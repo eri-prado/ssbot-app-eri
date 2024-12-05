@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "1051493017860",
-    "project_id": "sesi-ma-ssbot",
-    "storage_bucket": "sesi-ma-ssbot.appspot.com"
+    "project_number": "6747659041",
+    "project_id": "ssbot-teste",
+    "storage_bucket": "ssbot-teste.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1051493017860:android:0e9e93ea385f009ec34851",
+        "mobilesdk_app_id": "1:6747659041:android:95028fef4ee56e095fbc60",
         "android_client_info": {
-          "package_name": "com.sistemabiodata.ssbotapp"
+          "package_name": "com.sistemabiodata.ssbotappteste"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCeWmJkBVjbRM_N7ehHjjHURXQFrd_lmjs"
+          "current_key": "AIzaSyCF3qb9hb2lRQQ-MGIwvVlqCgLOxOD2SE0"
         }
       ],
       "services": {

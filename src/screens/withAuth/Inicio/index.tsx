@@ -31,6 +31,8 @@ import * as Linking from 'expo-linking';
 import CustomAlert from '../../../components/CustomAlert';
 import { Button, Text as TextPaper } from 'react-native-paper';
 import Constants from 'expo-constants';
+import { useNotification } from '../../../contexts/NotificationContext';
+import * as Clipboard from 'expo-clipboard';
 
 type NotificacoesProps = StackScreenProps<any>;
 
@@ -51,6 +53,17 @@ export default function Inicio({ navigation }: NotificacoesProps) {
   const [notificationData, setNotificationData] =
     useState<null | INotification>(null);
   const [visiblePermissaoAlert, setVisiblePermissaoAlert] = useState(false);
+
+  const { notification, expoPushToken, error } = useNotification();
+
+  if (error) {
+    return <Text>Error: {error.message}</Text>;
+  }
+
+  const copyToClipboard = async () => {
+    await Clipboard.setStringAsync(expoPushToken || '');
+  };
+
 
   const closeAlert = () => setVisiblePermissaoAlert(false);
 
@@ -181,21 +194,21 @@ export default function Inicio({ navigation }: NotificacoesProps) {
     // messaging().onMessage(async (message) => {
     //   setNotificationData(message as any);
     // });
-    handleCallNotification();
+    // handleCallNotification();
 
 
-  notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-    setNotificationData(notification.request.content as any);
-  });
+  // notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+  //   setNotificationData(notification.request.content as any);
+  // });
 
-  responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-    console.log(response);
-  });
+  // responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+  //   console.log(response);
+  // });
 
-  return () => {
-    Notifications.removeNotificationSubscription(notificationListener.current);
-    Notifications.removeNotificationSubscription(responseListener.current);
-  };
+  // return () => {
+  //   Notifications.removeNotificationSubscription(notificationListener.current);
+  //   Notifications.removeNotificationSubscription(responseListener.current);
+  // };
 
   }, []);
 
@@ -271,6 +284,10 @@ export default function Inicio({ navigation }: NotificacoesProps) {
             </View>
           </Surface>
         </TouchableWithoutFeedback> */}
+             <Text>{expoPushToken}</Text>
+        <Text>Latest notification:</Text>
+        <Text>{notification?.request.content.title}</Text>
+        <Text>{JSON.stringify(notification?.request.content.data, null, 2)}</Text>
           <TouchableWithoutFeedback onPress={handlePressBottomSheetFaleConosco}>
             <Surface elevation={1} style={{ borderRadius: 12, padding: 14 }}>
               <View
@@ -312,6 +329,7 @@ export default function Inicio({ navigation }: NotificacoesProps) {
               </View>
             </Surface>
           </TouchableWithoutFeedback>
+          <Button onPress={copyToClipboard}>Copiar</Button>
           <View style={{ flexDirection: 'row', gap: 16 }}>
             <TouchableWithoutFeedback
               onPress={() => navigation.navigate('EPI')}

@@ -8,9 +8,9 @@ import { GlobalContext, GlobalContextProvider } from './src/contexts/globalConte
 import { useEffect, useState, useContext } from 'react';
 import { getItemStorage } from './src/helpers/getItemStorage';
 import { hideAsync, preventAutoHideAsync } from 'expo-splash-screen';
-import Splash from './src/screens/noAuth/Splash';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Toast from 'react-native-toast-message';
+import Splash from './src/screens/noAuth/Splash';
 
 preventAutoHideAsync();
 

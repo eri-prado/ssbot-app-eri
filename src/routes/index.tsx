@@ -17,6 +17,7 @@ import Treinamentos from '../screens/withAuth/Treinamentos';
 import AlterarSenha from '../screens/withAuth/AlterarSenha';
 import { Button } from 'react-native-paper';
 import { Platform, Text } from 'react-native';
+import { NotificationProvider } from '../contexts/NotificationContext';
 
 export type RootStackParamList = {
   initialScreen: undefined;
@@ -81,83 +82,87 @@ export default function RouteStack() {
 
   // }, [])
 
-    const headerBackTitle =  {headerBackTitle: Platform.OS == "ios" ? "Voltar" : ""}
+  const headerBackTitle = {
+    headerBackTitle: Platform.OS == 'ios' ? 'Voltar' : '',
+  };
 
   return (
     <>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName='initialScreen'>
-          {isAuthenticated ? (
-            <>
-              <Stack.Screen
-                // name='drawerRoutes'
-                // component={DrawerRoutes}
-                name='tabRoutes'
-                component={TabRoutes}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name='novaAgenda'
-                component={NovaAgenda}
-                options={{ title: 'Novo Agendamento', ...headerBackTitle }}
-              />
-               <Stack.Screen
-                name='selecionaData'
-                component={SelecionaAgenda}
-                options={{ title: 'Selecionar Data', ...headerBackTitle }}
-              />
-              <Stack.Screen
-                name='minhaConta'
-                component={MinhaConta}
-                options={{ title: 'Minha Conta', ...headerBackTitle }}
-              />
-              <Stack.Screen
-                name='alterarSenha'
-                component={AlterarSenha}
-                options={{ title: 'Alterar Senha', ...headerBackTitle }}
-              />
-              <Stack.Screen
-                name='notificacoes'
-                component={Notificacoes}
-                options={{ title: 'Notificações', ...headerBackTitle }}
-              />
-              <Stack.Screen
-                name='EPI'
-                component={EPI}
-                options={{ title: 'Entrega de EPI', ...headerBackTitle }}
-              />
-              <Stack.Screen
-                name='ASO'
-                component={ASO}
-                options={{ title: 'ASO', ...headerBackTitle}}
-              />
-              <Stack.Screen
-                name='riscos'
-                component={Riscos}
-                options={{ title: 'Riscos', ...headerBackTitle }}
-              />
-              <Stack.Screen
-                name='treinamentos'
-                component={Treinamentos}
-                options={{ title: 'Treinamentos', ...headerBackTitle }}
-              />
-            </>
-          ) : (
-            <>
-              <Stack.Screen
-                name='initialScreen'
-                component={InitialScreen}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name='login'
-                component={Login}
-                options={{ headerShown: false }}
-              />
-            </>
-          )}
-        </Stack.Navigator>
-      </NavigationContainer>
+      <NotificationProvider>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName='initialScreen'>
+            {isAuthenticated ? (
+              <>
+                <Stack.Screen
+                  // name='drawerRoutes'
+                  // component={DrawerRoutes}
+                  name='tabRoutes'
+                  component={TabRoutes}
+                  options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                  name='novaAgenda'
+                  component={NovaAgenda}
+                  options={{ title: 'Novo Agendamento', ...headerBackTitle }}
+                />
+                <Stack.Screen
+                  name='selecionaData'
+                  component={SelecionaAgenda}
+                  options={{ title: 'Selecionar Data', ...headerBackTitle }}
+                />
+                <Stack.Screen
+                  name='minhaConta'
+                  component={MinhaConta}
+                  options={{ title: 'Minha Conta', ...headerBackTitle }}
+                />
+                <Stack.Screen
+                  name='alterarSenha'
+                  component={AlterarSenha}
+                  options={{ title: 'Alterar Senha', ...headerBackTitle }}
+                />
+                <Stack.Screen
+                  name='notificacoes'
+                  component={Notificacoes}
+                  options={{ title: 'Notificações', ...headerBackTitle }}
+                />
+                <Stack.Screen
+                  name='EPI'
+                  component={EPI}
+                  options={{ title: 'Entrega de EPI', ...headerBackTitle }}
+                />
+                <Stack.Screen
+                  name='ASO'
+                  component={ASO}
+                  options={{ title: 'ASO', ...headerBackTitle }}
+                />
+                <Stack.Screen
+                  name='riscos'
+                  component={Riscos}
+                  options={{ title: 'Riscos', ...headerBackTitle }}
+                />
+                <Stack.Screen
+                  name='treinamentos'
+                  component={Treinamentos}
+                  options={{ title: 'Treinamentos', ...headerBackTitle }}
+                />
+              </>
+            ) : (
+              <>
+                <Stack.Screen
+                  name='initialScreen'
+                  component={InitialScreen}
+                  options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                  name='login'
+                  component={Login}
+                  options={{ headerShown: false }}
+                />
+              </>
+            )}
+          </Stack.Navigator>
+        </NavigationContainer>
+      </NotificationProvider>
     </>
   );
 }
