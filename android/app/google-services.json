@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1051493017860",
+    "project_id": "sesi-ma-ssbot",
+    "storage_bucket": "sesi-ma-ssbot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051493017860:android:0e9e93ea385f009ec34851",
+        "android_client_info": {
+          "package_name": "com.sistemabiodata.ssbotapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeWmJkBVjbRM_N7ehHjjHURXQFrd_lmjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

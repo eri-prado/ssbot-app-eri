@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "SSBot",
+    "slug": "ss-bot",
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#189AB4"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sistemabiodata.ssbotapp"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c13bb2a8-a4a5-4880-87bc-ca8125fd1d31"
+      }
+    },
+    "android": {
+      "versionCode": "2",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "googleServicesFile": "./google-services.json",
+      "package": "com.sistemabiodata.ssbotapp"
+    }
+  }
+}
