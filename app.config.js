@@ -7,9 +7,11 @@ module.exports = {
     icon: './assets/icon.png',
     userInterfaceStyle: 'light',
     splash: {
+      image: './assets/splash.png',
       resizeMode: 'contain',
       backgroundColor: '#189AB4',
     },
+    assetBundlePatterns: ['**/*'],
     ios: {
       supportsTablet: true,
       bundleIdentifier: 'com.sistemabiodata.ssbotappteste',
@@ -28,8 +30,7 @@ module.exports = {
         foregroundImage: './assets/adaptive-icon.png',
         backgroundColor: '#ffffff',
       },
-      googleServicesFile:
-        process.env.GOOGLE_SERVICES_JSON || './google-services.json',
+      googleServicesFile: process.env.GOOGLE_SERVICES_JSON || './google-services.json',
       package: 'com.sistemabiodata.ssbotappteste',
     },
   },
